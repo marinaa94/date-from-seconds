@@ -1,4 +1,4 @@
-# date-from-seconds
+//# date-from-seconds
 #include <stdio.h>
 #include <time.h>
    //#define YEAR=1970
@@ -13,6 +13,8 @@ int time_min=min%60;       //time of minites
 int hour=min/60;
 int time_hour=hour%24;      //time of hours 
 int day=(hour-(hour%24))/24;
+time_hour=time_hour+2;
+
 int year=day /365;
 int date;
  //printf ("%lu,%d,%d,%d,%d,%d,%d \n",time_t,min,time_min,hour,time_hour,day,year);
@@ -37,6 +39,10 @@ else ;
 printf("\n      Number of Leap Years Since 1970 is %d \nToday is ",n);
 int YY=YEAR+year;       //YY=date of year,YEAR =const 1970,year=varible
  //printf("%d=%d+%d",YY,YEAR,year);
+if(time_hour%24==0)
+{time_hour=time_hour-24;
+day=day+1;}
+else;
 day=day-n+1;
 if (YY!=date)
   {int DD= day%365;       //DD=date of day
@@ -116,7 +122,7 @@ else
      printf("%d Dec %d",DD,YY);}
   else;};
 
-time_hour=time_hour+2;
+
 printf(" and Time is %d :%d \n",time_hour,time_min);
 return 0;
 }
